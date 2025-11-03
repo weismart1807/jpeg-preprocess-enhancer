@@ -75,7 +75,10 @@ jpeg-preprocess-enhancer/ (Your project root)
 Training/Validation Data (DIV2K):
 [DIV2K](https://www.kaggle.com/datasets/soumikrakshit/div2k-high-resolution-images)
 + You need to download DIV2K_train_HR.zip (800 images) and DIV2K_valid_HR.zip (100 images).
-+ Unzip and place the images into the data/DIV2K_train_HR/images and data/DIV2K_valid_HR/images folders, respectively.
++ Unzip and place the images into the
+```bash
+data/DIV2K_train_HR/images and data/DIV2K_valid_HR/images #folder
+```
 
 Test Data (JPEG-AI):
 [JPEG-AI Test Set](https://jpegai.github.io/test_images/)
