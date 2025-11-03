@@ -65,6 +65,9 @@ jpeg-preprocess-enhancer/ (Your project root)
 ├── test.py
 ├── utils.py
 ├── model.py
+├── utils_diff_jpeg_simple.py
+├── utils_diff_jpeg_old.py
+├── utils_diff_jpeg_new.py
 └── ... (Other .py files)
 ```
 
@@ -91,7 +94,7 @@ from utils_diff_jpeg_old import differentiable_jpeg
 # from utils_diff_jpeg_simple import differentiable_jpeg
 ```
 
-### Run training
+### Training command
 ```bash
 python train.py
 ```
@@ -100,7 +103,7 @@ After training, the best model will be saved as best_model.pth. A loss curve plo
 # Testing
 The test.py script is used to evaluate a single image, comparing the performance of "Standard JPEG" against "Our Enhanced Method" and calculating PSNR, SSIM, and LPIPS metrics.
 
-### Test command
+### Testing command
 ```bash
 python test.py --input "data/test/00015_TE_3680x2456.png" --model "best_model.pth" --quality 10
 ```
