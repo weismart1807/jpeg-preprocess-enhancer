@@ -92,7 +92,7 @@ data/test #folder
 
 Note: Ensure you are always in the (DIP_env) environment.
 
-## 3.Training
+## 3. Training
 The train.py script will automatically load the dataset from the data/ directory and begin training. The training parameters (like JPEG_QUALITY = 10) are set within the script, as per the Shoda et al. paper.
 
 ### Select Differentiable JPEG Implementation (Line 16)
