@@ -4,7 +4,7 @@ This project implements a JPEG image enhancement method inspired by the paper fr
 
 This project uses a U-Net (`model.py`) as a "color transformation network" and a differentiable JPEG simulator (`utils.py`, based on necla-ml/Diff-JPEG [2]) for end-to-end training.
 
-##### This project serves as Digital Image Processing final project, the class is taught by Professor Tang, Chih-Wei.
+#### This project serves as Digital Image Processing final project, the class is taught by Professor Tang, Chih-Wei.
 
 ---
 
@@ -92,7 +92,7 @@ data/test #folder
 
 Note: Ensure you are always in the (DIP_env) environment.
 
-# 3.Training
+## 3.Training
 The train.py script will automatically load the dataset from the data/ directory and begin training. The training parameters (like JPEG_QUALITY = 10) are set within the script, as per the Shoda et al. paper.
 
 ### Select Differentiable JPEG Implementation (Line 16)
@@ -109,7 +109,7 @@ python train.py
 ```
 After training, the best model will be saved as best_model.pth. A loss curve plot (loss_plot_q10.png) will also be generated.
 
-# 4. Testing
+## 4. Testing
 The test.py script is used to evaluate a single image, comparing the performance of "Standard JPEG" against "Our Enhanced Method" and calculating PSNR, SSIM, and LPIPS metrics.
 
 ### Testing command
@@ -122,10 +122,10 @@ python test.py --input "data/test/00015_TE_3680x2456.png" --model "best_model.pt
 
 After running, a Matplotlib window will pop up showing the Original, Standard JPEG, and Our Method side-by-side with their quantitative metrics.
 
-# 5. Result
+## 5. Result
 <img width="1263" height="368" alt="image" src="https://github.com/user-attachments/assets/1aa098e3-f395-4f4f-88f5-d30a02a101bc" />
 
-# 6. References
+## 6. References
 >[1] Shoda, Akane, Tomo Miyazaki, and Shinichiro Omachi. "JPEG image enhancement with pre-processing of color reduction and smoothing." Sensors 23, no. 21 (2023): 8861.
 
 >[2] Reich, Christoph, Biplob Debnath, Deep Patel, and Srimat Chakradhar. "Differentiable jpeg: The devil is in the details." In Proceedings of the IEEE/CVF Winter Conference on Applications of Computer Vision, pp. 4126-4135. 2024.
