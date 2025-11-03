@@ -1,23 +1,21 @@
 JPEG Pre-Processing Enhancer
-
 This project implements a JPEG image enhancement method inspired by the paper from Shoda et al. [2]. The core idea is to pre-process the image before standard JPEG compression. This pre-processing aims to suppress severe artifacts, such as red block noise and pseudo-contours, that occur during low-quality compression (e.g., Q=10).
 
 This project uses a U-Net (model.py) as a "color transformation network" and a differentiable JPEG simulator (utils.py, based on necla-ml/Diff-JPEG [1]) for end-to-end training.
 
 1. Installation
-
 Using Conda to manage the environment is recommended.
 
 Step 1: Clone the Repository
+Bash
 
 # Replace with your repository URL
-git clone [https://github.com/weismart1807/jpeg-preprocess-enhancer.git](https://github.com/weismart1807/jpeg-preprocess-enhancer.git)
+git clone https://github.com/weismart1807/jpeg-preprocess-enhancer.git
 cd jpeg-preprocess-enhancer
-
-
 Step 2: Create Conda Environment
-
 We will create a new environment named DIP_env and install the necessary packages.
+
+Bash
 
 # 1. Create the environment
 conda create -n DIP_env python=3.9
@@ -33,11 +31,10 @@ conda install -c conda-forge opencv
 
 # 5. Install other dependencies (DiffJPEG, LPIPS, scikit-image, etc.)
 pip install matplotlib scikit-image lpips diff-jpeg
-
-
 2. Dataset Setup
-
 The scripts read data from the ./data/ directory. Since the dataset files are large, they are ignored by .gitignore. You must download them manually and place them according to the following structure:
+
+Plaintext
 
 jpeg-preprocess-enhancer/ (Your project root)
 │
@@ -63,10 +60,7 @@ jpeg-preprocess-enhancer/ (Your project root)
 ├── utils.py
 ├── model.py
 └── ... (Other .py files)
-
-
 Dataset Links
-
 Training/Validation Data (DIV2K):
 
 DIV2K Official Website
@@ -82,28 +76,25 @@ JPEG-AI Test Set
 Download your preferred high-resolution test images (e.g., 00015_TE_3680x2456.png) and place them in the data/test/ folder.
 
 3. Usage
-
 Ensure you are always in the (DIP_env) environment.
 
 Training
-
 The train.py script will automatically load the dataset from the data/ directory and begin training. The training parameters (like JPEG_QUALITY = 10) are set within the script, as per the Shoda et al. paper.
+
+Bash
 
 # Run training
 python train.py
-
-
-After training, the best model will be saved as best_model.pth.
-
-A loss curve plot (loss_plot_q10.png) will also be generated.
+After training, the best model will be saved as best_model.pth. A loss curve plot (loss_plot_q10.png) will also be generated.
 
 Testing
-
 The test.py script is used to evaluate a single image, comparing the performance of "Standard JPEG" against "Our Enhanced Method" and calculating PSNR, SSIM, and LPIPS metrics.
+
+Bash
 
 # Test command
 python test.py --input "data/test/00015_TE_3680x2456.png" --model "best_model.pth" --quality 10
-
+Arguments:
 
 --input: (Required) Path to the test image in your ./data/test/ folder.
 
@@ -114,7 +105,6 @@ python test.py --input "data/test/00015_TE_3680x2456.png" --model "best_model.pt
 After running, a Matplotlib window will pop up showing the Original, Standard JPEG, and Our Method side-by-side with their quantitative metrics.
 
 4. References
+Reich, C., et al. "Differentiable jpeg: The devil is in the details." (WACV 2024).
 
-[1] Reich, C., et al. "Differentiable jpeg: The devil is in the details." (WACV 2024).
-
-[2] Shoda, A., et al. "JPEG image enhancement with pre-processing of color reduction and smoothing." (Sensors 2023).
+Shoda, A., et al. "JPEG image enhancement with pre-processing of color reduction and smoothing." (Sensors 2023).
