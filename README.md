@@ -122,7 +122,10 @@ python test.py --input "data/test/00015_TE_3680x2456.png" --model "best_model.pt
 
 After running, a Matplotlib window will pop up showing the Original, Standard JPEG, and Our Method side-by-side with their quantitative metrics.
 
-## 5. References
+# 5. Result
+<img width="1263" height="368" alt="image" src="https://github.com/user-attachments/assets/1aa098e3-f395-4f4f-88f5-d30a02a101bc" />
+
+# 6. References
 >[1] Shoda, Akane, Tomo Miyazaki, and Shinichiro Omachi. "JPEG image enhancement with pre-processing of color reduction and smoothing." Sensors 23, no. 21 (2023): 8861.
 
 >[2] Reich, Christoph, Biplob Debnath, Deep Patel, and Srimat Chakradhar. "Differentiable jpeg: The devil is in the details." In Proceedings of the IEEE/CVF Winter Conference on Applications of Computer Vision, pp. 4126-4135. 2024.
