@@ -77,12 +77,16 @@ Training/Validation Data (DIV2K):
 + You need to download DIV2K_train_HR.zip (800 images) and DIV2K_valid_HR.zip (100 images).
 + Unzip and place the images into the
 ```bash
-data/DIV2K_train_HR/images and data/DIV2K_valid_HR/images #folder
+data/DIV2K_train_HR/images #folder
+data/DIV2K_valid_HR/images #folder
 ```
 
 Test Data (JPEG-AI):
 [JPEG-AI Test Set](https://jpegai.github.io/test_images/)
-+ Download your preferred high-resolution test images (e.g., 00015_TE_3680x2456.png) and place them in the data/test/ folder.
++ Download your preferred high-resolution test images (e.g., 00015_TE_3680x2456.png) and place them in
+```bash
+data/test #folder
+```
 
 Note: Ensure you are always in the (DIP_env) environment.
 
