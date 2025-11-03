@@ -4,6 +4,8 @@ This project implements a JPEG image enhancement method inspired by the paper fr
 
 This project uses a U-Net (`model.py`) as a "color transformation network" and a differentiable JPEG simulator (`utils.py`, based on necla-ml/Diff-JPEG [2]) for end-to-end training.
 
+This project serves as Digital Image Processing teaching by Tang, Chih-Wei.
+
 ---
 
 ## 1. Installation
