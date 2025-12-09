@@ -22,7 +22,7 @@ This project instead enhances images before JPEG compression, training a network
 + The decoder remains unchanged → standard-compliant
 
 ### 🧠 Pipeline Overview
-![alt text](Arch.png)
+<img width="1182" height="204" alt="Arch" src="https://github.com/user-attachments/assets/843454a4-5e1e-47d8-9744-5e73af1d3a73" />
 
 ---
 
