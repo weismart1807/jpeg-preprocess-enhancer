@@ -6,24 +6,6 @@ This project uses a U-Net (`model.py`) as a "color transformation network" and a
 
 #### This project serves as Digital Image Processing final project, the class is taught by Professor Tang, Chih-Wei.
 
-### 🔍 Project Overview (New and Recommended)
-
-Low-quality JPEG compression introduces visible artifacts such as:
-+ Blocking
-+ Banding / pseudo-contours
-+ Red color noise or shifts
-
-Traditional deep-learning enhancement works operate after decoding, but this requires extra compute on the user’s device.
-
-This project instead enhances images before JPEG compression, training a network that “prepares" the image so that:
-
-+ The JPEG encoder damages it less
-+ Its perceptual quality remains high
-+ The decoder remains unchanged → standard-compliant
-
-### 🧠 Pipeline Overview
-<img width="1182" height="204" alt="Arch" src="https://github.com/user-attachments/assets/843454a4-5e1e-47d8-9744-5e73af1d3a73" />
-
 ---
 
 ## 1. Installation
@@ -152,7 +134,8 @@ python test_all.py
 ```
 
 ## 5. Result
-<img width="1263" height="368" alt="image" src="https://github.com/user-attachments/assets/1aa098e3-f395-4f4f-88f5-d30a02a101bc" />
+<img width="1807" height="497" alt="image" src="https://github.com/user-attachments/assets/36186541-9587-454c-88ce-0231822b3bf9" />
+<img width="1807" height="498" alt="image" src="https://github.com/user-attachments/assets/be805bef-f38f-4500-ba92-c0d91a1adeac" />
 
 ## 6. References
 >[1] Shoda, Akane, Tomo Miyazaki, and Shinichiro Omachi. "JPEG image enhancement with pre-processing of color reduction and smoothing." Sensors 23, no. 21 (2023): 8861.
