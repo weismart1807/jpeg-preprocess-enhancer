@@ -255,13 +255,14 @@ if __name__ == '__main__':
     # ---
 
     parser = argparse.ArgumentParser(description='Test script for JPEG enhancement using a trained model.')
-    parser.add_argument('--input', type=str, required=True, help='Path to the input image.')
-    parser.add_argument('--model', type=str, default='best_model_old-diff_guss03_color16.pth', help='Path to the trained model weights.')
+    parser.add_argument('--input', type=str, default="./data/test/00015_TE_3680x2456.png", help='Path to the input image.')
+    # parser.add_argument('--model', type=str, default='best_model_new-diff_guss01_color04.pth', help='Path to the trained model weights.')
+    parser.add_argument('--model', type=str, default='best_model_new-diff_guss03_color04.pth', help='Path to the trained model weights.')
     # parser.add_argument('--model', type=str, default='best_model_new-diff.pth', help='Path to the trained model weights.')
-    parser.add_argument('--quality', type=int, default=10, choices=range(0, 101), metavar="[0-100]", help='JPEG compression quality (0-100).')
+    parser.add_argument('--quality', type=int, default=1, choices=range(0, 101), metavar="[0-100]", help='JPEG compression quality (0-100).')
     
     args = parser.parse_args()
-    NUM_REPRESENTATIVE_COLORS = 16
+    NUM_REPRESENTATIVE_COLORS = 4
 
     main(args, NUM_REPRESENTATIVE_COLORS)
 

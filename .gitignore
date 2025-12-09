@@ -1,5 +1,7 @@
+pycache/*.pyc
 data/
 *.pth
 *.png
+*.txt
 .vscode/
 .DS_Store
