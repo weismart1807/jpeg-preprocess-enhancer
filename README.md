@@ -1,10 +1,28 @@
-# JPEG Pre-Processing Enhancer
+# JPEG Pre-Processing 
+
+#### This project serves as Digital Image Processing final project, the class is taught by Professor Tang, Chih-Wei.
 
 This project implements a JPEG image enhancement method inspired by the paper from Shoda et al. [1]. The core idea is to pre-process the image before standard JPEG compression. This pre-processing aims to suppress severe artifacts, such as red block noise and pseudo-contours, that occur during low-quality compression (e.g., Q=10).
 
 This project uses a U-Net (`model.py`) as a "color transformation network" and a differentiable JPEG simulator (`utils.py`, based on necla-ml/Diff-JPEG [2]) for end-to-end training.
 
-#### This project serves as Digital Image Processing final project, the class is taught by Professor Tang, Chih-Wei.
+### 🔍 Project Overview (New and Recommended)
+
+Low-quality JPEG compression introduces visible artifacts such as:
++ Blocking
++ Banding / pseudo-contours
++ Red color noise or shifts
+
+Traditional deep-learning enhancement works operate after decoding, but this requires extra compute on the user’s device.
+
+This project instead enhances images before JPEG compression, training a network that “prepares" the image so that:
+
++ The JPEG encoder damages it less
++ Its perceptual quality remains high
++ The decoder remains unchanged → standard-compliant
+
+### 🧠 Pipeline Overview
+<img width="1182" height="204" alt="Arch" src="https://github.com/user-attachments/assets/b05b6475-fa40-4cf4-9c15-7d07cce8907f" />
 
 ---
 
