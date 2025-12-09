@@ -6,6 +6,24 @@ This project uses a U-Net (`model.py`) as a "color transformation network" and a
 
 #### This project serves as Digital Image Processing final project, the class is taught by Professor Tang, Chih-Wei.
 
+### 🔍 Project Overview (New and Recommended)
+
+Low-quality JPEG compression introduces visible artifacts such as:
++ Blocking
++ Banding / pseudo-contours
++ Red color noise or shifts
+
+Traditional deep-learning enhancement works operate after decoding, but this requires extra compute on the user’s device.
+
+This project instead enhances images before JPEG compression, training a network that “prepares" the image so that:
+
++ The JPEG encoder damages it less
++ Its perceptual quality remains high
++ The decoder remains unchanged → standard-compliant
+
+### 🧠 Pipeline Overview
+![alt text](Arch.png)
+
 ---
 
 ## 1. Installation
@@ -41,7 +59,7 @@ pip install matplotlib scikit-image lpips diff-jpeg
 ```
 
 ## 2. Dataset Setup
-The scripts read data from the ./data/ directory. Since the dataset files are large, they are ignored by .gitignore. You must download them manually and place them according to the following structure:
+The scripts read data from the `./data/` directory. Since the dataset files are large, they are ignored by .gitignore. You must download them manually and place them according to the following structure:
 
 ```bash
 jpeg-preprocess-enhancer/ (Your project root)
@@ -65,12 +83,12 @@ jpeg-preprocess-enhancer/ (Your project root)
 │
 ├── train.py
 ├── test.py
+├── test_all.py
 ├── utils.py
 ├── model.py
 ├── utils_diff_jpeg_simple.py
 ├── utils_diff_jpeg_old.py
-├── utils_diff_jpeg_new.py
-└── ... (Other .py files)
+└── utils_diff_jpeg_new.py
 ```
 
 ### Dataset Links
@@ -98,10 +116,16 @@ The train.py script will automatically load the dataset from the data/ directory
 ### Select Differentiable JPEG Implementation (Line 16)
 ```bash
 # --- Select Differentiable JPEG Implementation ---
-# from utils_diff_jpeg_new import differentiable_jpeg
-from utils_diff_jpeg_old import differentiable_jpeg
+from utils_diff_jpeg_new import differentiable_jpeg
+# from utils_diff_jpeg_old import differentiable_jpeg
 # from utils_diff_jpeg_simple import differentiable_jpeg
 ```
+| Implementation          | File                        | Description                                                                        | Pros                                                                       | Cons                                                       | Recommended Use              |
+| ----------------------- | --------------------------- | ---------------------------------------------------------------------------------- | -------------------------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------- |
+| **Simple**              | `utils_diff_jpeg_simple.py` | Minimal differentiable JPEG with basic rounding approximation                      | Fast, easy to understand                                                   | Low accuracy, unstable gradients                           | Educational use / debugging  |
+| **Old (Approximation)** | `utils_diff_jpeg_old.py`    | Based on Shoda et al. + Shin et al. approximation of rounding                      | Closer to real JPEG, moderate stability                                    | Still inaccurate in quantization behavior; gradient issues | Reproducing older research   |
+| **New (SOTA)**          | `utils_diff_jpeg_new.py`    | Based on Reich et al. WACV 2024 “Differentiable JPEG: The Devil Is in the Details” | Best simulator accuracy, stable gradients, realistic quantization modeling | Slightly slower                                            | **Recommended for training** |
+
 
 ### Training command
 ```bash
@@ -121,6 +145,11 @@ python test.py --input "data/test/00015_TE_3680x2456.png" --model "best_model.pt
 + --quality: (Required) The JPEG quality to test against (e.g., 10 to match the training).
 
 After running, a Matplotlib window will pop up showing the Original, Standard JPEG, and Our Method side-by-side with their quantitative metrics.
+
+To test all images, update the parameters in `test_all.py` and run:
+```bash
+python test_all.py 
+```
 
 ## 5. Result
 <img width="1263" height="368" alt="image" src="https://github.com/user-attachments/assets/1aa098e3-f395-4f4f-88f5-d30a02a101bc" />
